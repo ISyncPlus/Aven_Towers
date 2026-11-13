@@ -1,24 +1,27 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { residences, unitsOnFloor, availableOnFloor, getResidence } from '../lib/residences.ts';
-import { facade } from '../lib/architecture.ts';
+import { towerParts } from '../lib/cinematic/tower.ts';
 import { city } from '../lib/city.ts';
-test('all 32 homes have unique IDs and a valid selectable floor', () => {
-  assert.equal(new Set(residences.map(unit => unit.id)).size, 32);
-  for (let floor = 1; floor <= 8; floor++) {
-    assert.equal(unitsOnFloor(floor).length, 4);
-    assert.ok(availableOnFloor(floor).length > 0);
+test('24 full-floor homes match the selectable tower levels and signature residence', () => {
+  assert.equal(new Set(residences.map(unit => unit.id)).size, 24);
+  for (let floor = 2; floor <= 25; floor++) {
+    assert.equal(unitsOnFloor(floor).length, 1);
     assert.ok(availableOnFloor(floor).every(unit => unit.available && unit.floor === floor));
   }
-  assert.equal(getResidence('4B')?.floor, 4);
-  assert.equal(getResidence('invalid'), undefined);
+  assert.equal(getResidence('18A')?.area, 218);
+  assert.equal(getResidence('18A')?.price, 1_550_000_000);
+  assert.equal(getResidence('12A')?.available, false);
+  assert.equal(getResidence('4B'), undefined);
   assert.equal(availableOnFloor(0).length, 0);
 });
 test('architectural instance transforms are finite and have positive dimensions', () => {
-  const parts = facade();
-  assert.ok(parts.glass.length + parts.warmGlass.length >= 80);
+  const batches = towerParts();
+  const parts = batches.shell;
+  assert.ok(batches.featured.glass.length > 0);
+  assert.ok(parts.glass.length + parts.warm.length >= 400);
   assert.ok(parts.metal.length > 200);
-  for (const batch of Object.values(parts)) for (const part of batch) {
+  for (const batch of Object.values({ ...parts, featured: Object.values(batches.featured).flat() })) for (const part of batch) {
     assert.ok(part.p.every(Number.isFinite));
     assert.ok(part.s.every(n => Number.isFinite(n) && n > 0));
   }

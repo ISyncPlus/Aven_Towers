@@ -7,7 +7,7 @@ const details = { name: 'Aven API Quality Check', email: 'quality-check@example.
 const send = (origin, body = details) => fetch(base + '/api/enquiries', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin }, body: JSON.stringify(body) });
 for (const origin of ['https://127.0.0.1:3000', 'http://localhost:3000', 'http://127.0.0.1:3001']) assert.equal((await send(origin)).status, 403, 'different schemes, hosts and ports must be rejected');
 assert.equal((await send(base, { ...details, email: 'invalid' })).status, 400);
-assert.equal((await send(base, { ...details, residence: '4C' })).status, 409);
+assert.equal((await send(base, { ...details, residence: '12A' })).status, 409);
 let record;
 try {
   const response = await send(base);
