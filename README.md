@@ -1,6 +1,6 @@
-# Aven Residences
+# Aven Towers
 
-A cinematic real-time property experience for Aven, Lagos. All source, 3D geometry, materials, reference footage, and project assets live in this folder.
+A cinematic, real-time property experience for Aven Towers in Lagos. Explore the eight-storey building, move through its residences, and prepare a private viewing request through an interactive 3D presentation.
 
 ## Run
 
@@ -29,14 +29,14 @@ npm test
 
 With the local server running, `node tests/api-smoke.mjs` checks request validation, strict origin protection, reserved homes, private enquiry storage, and confirmation references. Its own disposable enquiry record is removed after the check.
 
-## The experience
+## Experience
 
-- Procedural eight-level apartment building with recessed balconies, glazing, interior details, timber screens, a branded entrance, and a furnished roof garden.
-- Eight detailed surrounding buildings, planted streets, lighting, and parking.
-- Cinematic introduction, three building viewpoints, pointer parallax, day/dusk lighting, and reduced-motion support.
-- Floor and bedroom filters, available/reserved homes, geometry-anchored hover panels, keyboard selection, and residence price/details panels.
-- Furnished one-, two-, and three-bedroom cutaways with timber flooring, layered bedding, upholstery, fitted kitchen and bathroom, and terrace furniture.
-- Responsive desktop, tablet, and phone compositions with native accessible dialogs.
+- Procedural eight-level tower with recessed balconies, glazing, timber screens, a branded entrance, and a furnished roof garden.
+- Detailed neighboring buildings, planted streets, lighting, parking, and a Lagos urban setting.
+- Cinematic camera direction, three building viewpoints, pointer parallax, day/dusk lighting, and reduced-motion support.
+- Floor and bedroom filters, available and reserved homes, keyboard navigation, and residence details.
+- Furnished one-, two-, and three-bedroom cutaways with kitchens, bathrooms, terraces, and interior finishes.
+- Responsive layouts for desktop, tablet, and mobile with accessible native dialogs.
 
 ## Enquiries
 
@@ -44,12 +44,12 @@ Viewing requests are validated on the server and saved as individual private JSO
 
 No email provider or CRM account was supplied. Enquiries are recorded for manual sales follow-up; email notifications are not automatically sent. Multi-server or ephemeral hosting needs a persistent database or storage service and a sales notification integration before launch.
 
-## Commercial content
+## Content status
 
-The final name is Aven. Lagos and NGN were confirmed by the client. The residence prices, areas, availability, amenities, and sales positioning were authored for the business presentation and need owner sign-off before commercial launch. No real street address, telephone number, sales email, planning approval, delivery date, named partner, customer review, or payment terms were fabricated.
+Lagos and NGN are used as the project context. Residence prices, areas, availability, amenities, and sales positioning are presentation content and need owner sign-off before commercial launch. No real street address, telephone number, sales email, planning approval, delivery date, named partner, customer review, or payment terms are represented as confirmed facts.
 
 ## Assets
 
 All geometry is authored in the project. PBR material maps and interior HDR lighting are locally hosted CC0 Poly Haven assets. Credits and source links are in `public/materials/CREDITS.md`. The Manrope font is locally hosted under the SIL Open Font License, included in `public/fonts/OFL.txt`. No runtime third-party image or font request is required.
 
-The supplied `real estate reference.mp4` is retained unchanged. Reference observations and design decisions are in `DESIGN.md`; QA notes are in `QA.md`.
+The supplied `real estate reference.mp4` is retained unchanged. Reference observations and design decisions are in [`DESIGN.md`](DESIGN.md); QA notes are in [`QA.md`](QA.md).
